@@ -134,15 +134,16 @@
         <span class="column is-narrow">
             
             
-            a minute read (About 146 words)
+            4 minutes read (About 548 words)
         </span>
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <p>이번에는 블로그관리에서 가장 중요한 부분인 글쓰기와 테마 설정에 대하여 다룰 것이다.</p>
-<h3 id="글쓰기"><a href="#글쓰기" class="headerlink" title="글쓰기"></a>글쓰기</h3><p>Hexo 글쓰기는 다음과 같은 명령어로 시작한다.<br><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
-<p>layout 에는 <code>post</code>,<code>page</code>, <code>draft</code> 3가지가있고, 각각의 역할은 다음과 같다.</p>
+<h2 id="글쓰기"><a href="#글쓰기" class="headerlink" title="글쓰기"></a>글쓰기</h2><h3 id="레이아웃"><a href="#레이아웃" class="headerlink" title="레이아웃"></a>레이아웃</h3><p>Hexo 글쓰기는 다음과 같은 명령어로 시작한다.</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>layout 에는 <code>post</code>,<code>page</code>, <code>draft</code> 3가지가있고, 각각의 역할은 다음과 같다 (기본은 <code>post</code>).</p>
 <table>
 <thead>
 <tr>
@@ -165,7 +166,47 @@
 <tr>
 <td>draft</td>
 <td>source/_drafts</td>
-<td>초안 작성. 나중에  <code>publish</code>로 배포</td>
+<td>초안 작성. 나중에 <code>publish</code>로 배포</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h4><p>홈페이지에 게시되는 가장 기본적인 글쓰기. 기본 레이아웃으로 지정되어있다. 기본 레이아웃은 <code>_config.yml</code>의 <code>default_layout</code>에서 변경 가능하다.</p>
+<h4 id="Page"><a href="#Page" class="headerlink" title="Page"></a>Page</h4><p>해당 경로에 접근해 불 수 있는 페이지를 작성한다. (ex: About, CV)</p>
+<h4 id="Draft"><a href="#Draft" class="headerlink" title="Draft"></a>Draft</h4><p>바로 게시하지 않고, 작성 할 수 있는 초안이다. 홈페이지에 올리지 않을 게시글을 미리 작성해 놓고, 나중에 <code>publish</code> 명령어로 게시 할 수 있다.</p>
+<p>로컬 서버에서 초안이 포함된 홈페이지는 다음 명령어로 확인 할 수 있다.</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server --draft</span><br></pre></td></tr></table></figure>
+<h2 id="파일명"><a href="#파일명" class="headerlink" title="파일명"></a>파일명</h2><p>기본적으로, <code>&lt;title&gt;</code>이 마크다운 파일이름과 글의 제목이 된다. 파일이름은 페이지의 url이 되기때문에 내용과 관련이있는 것으로 해놓는것이 좋다. 글의 제목은 나중에 마크다운파일 내에서 수정 할 수 있다. 기본 파일명은 <code>_config.yml</code>파일의 <code>new_post_name</code>설정을 변경하여 바꿀 수 있다. 예를들어, <code>:year-:month-:day-:title.md</code> 는 포스트가 생성된 날짜를 파일의 접두사로 사용하게 합니다. 우리는 아래와 같은 placeholder를 사용 할 수 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>placeholder</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:title</code></td>
+<td>Post 제목(소문자, 공백은 ‘-‘하이픈으로 변경된다)</td>
+</tr>
+<tr>
+<td><code>:year</code></td>
+<td>연도를 생성합니다. (예 : 2015)</td>
+</tr>
+<tr>
+<td><code>:month</code></td>
+<td>월을 생성합니다. (예 : 04)</td>
+</tr>
+<tr>
+<td><code>:i_month</code></td>
+<td>월을 생성합니다. (예 : 4)</td>
+</tr>
+<tr>
+<td><code>:day</code></td>
+<td>일을 생성합니다. (예 : 07)</td>
+</tr>
+<tr>
+<td><code>:i_day</code></td>
+<td>일을 생성합니다. (예 : 7)</td>
 </tr>
 </tbody>
 </table>
